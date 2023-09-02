@@ -68,3 +68,30 @@ var swiper = new Swiper(".slide-content", {
     el: ".swiper-pagination",
   },
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita la acción predeterminada de envío del formulario
+
+    // Realiza aquí cualquier acción adicional que desees, como validar los datos del formulario o mostrar un mensaje de confirmación al usuario
+
+    // Luego, puedes enviar los datos del formulario a Formsubmit utilizando Fetch API o cualquier otra forma que prefieras
+    fetch("https://formsubmit.io/send/aristyjulio0909@gmail.com", {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Maneja la respuesta de Formsubmit si es necesario
+        console.log(data);
+        // Puedes mostrar un mensaje de éxito o error al usuario
+      })
+      .catch((error) => {
+        // Maneja los errores si es necesario
+        console.error(error);
+        // Puedes mostrar un mensaje de error al usuario
+      });
+  });
+});

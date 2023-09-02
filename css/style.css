@@ -902,6 +902,8 @@ section:nth-child(odd) .animate.scroll,
     padding: 0 4%;
   }
 
+
+
   .footer {
     padding: 2rem 4%;
   }
@@ -973,6 +975,65 @@ section:nth-child(odd) .animate.scroll,
   .education-row {
     flex-direction: column;
   }
+
+  .slide-container {
+    width: 60%;
+    padding: 40px 0;
+  }
+
+  .card {
+    width: 350px;
+    min-height: 250px;
+    border-radius: 25px;
+    background-color: var(--bg-color);
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: 250px;
+    min-height: 150px;
+    border-radius: 25px;
+    background-color: var(--bg-color);
+  }
+
+  .slide-container {
+    width: 60%;
+    padding: 40px 0;
+  }
+
+  .btnSlider-box {
+    width: 225px;
+  }
+
+  .btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 25rem;
+    height: 4rem;
+  }
+  
+  .btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+  }
+
+  
 }
 
 @media (max-width: 520px) {
@@ -1004,7 +1065,12 @@ section:nth-child(odd) .animate.scroll,
     padding: 10rem 4% 5rem 5%;
   }
 
-
+  .card {
+    width: 200px;
+    min-height: 125px;
+    border-radius: 25px;
+    background-color: var(--bg-color);
+  }
 
 
   .contact form .input-box .input-field {
@@ -1035,6 +1101,50 @@ section:nth-child(odd) .animate.scroll,
 
   .home-content h1 {
     font-size: 5rem;
+  }
+
+  .card {
+    width: 180px;
+    min-height: 125px;
+    border-radius: 25px;
+    background-color: var(--bg-color);
+  }
+
+  .description {
+    font-size: 1.3rem;
+  }
+
+  .name-slider {
+    font-size: 2rem;
+  }
+
+
+
+  .btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 22.5rem;
+    height: 4rem;
+  }
+  
+  .btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
   }
 }
 

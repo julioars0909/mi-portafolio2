@@ -12,10 +12,12 @@
 }
 
 :root {
-    --bg-color: #081b29;
-    --second-bg-color: #112e42;
+    --bg-color:  #112e42;
+    --second-color-bg: #112e42;
+    --header-dark: #000;
     ---text-color: #ededed;
     --main-color: #00abf0;
+    --secondary-color: #081b29;
 }
 
 html {
@@ -26,6 +28,13 @@ html {
 body {
     background: var(--bg-color);
     color: var(---text-color);
+    transition: .3s ease;
+}
+
+
+.dark {
+  background: #000;
+  transition: .3s ease;
 }
 
 .header {
@@ -40,10 +49,18 @@ body {
     align-items: center;
     z-index: 100;
     transition: .3s;
+    border-bottom: 1px solid #00abf0;
+    box-shadow:  0px 5px 7px 0px #00acf073;
 }
 
 .header.sticky {
   background: var(--bg-color);
+  transition: .5s ease all;
+  
+}
+
+.sticky-black {
+  background: #000;
 }
 
 .logo {
@@ -71,6 +88,51 @@ body {
     color: var(--main-color);
 }
 
+.switch {
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  justify-content: end;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: .3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0,0,.2 );
+}
+
+.active-switch {
+  background: orange;
+  color: #000;
+}
+
+.active-switch::after {
+  right: 0;
+  left: unset;
+}
+
+.switch span{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+
 #menu-icon {
   position: relative;
   font-size: 3.6rem;
@@ -87,14 +149,15 @@ section {
 .home {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 9%;
-  /* background: url('/images/home3.jpg') no-repeat; */
+  /* background: url('/images/codigo.jpeg') no-repeat; 
   background-size: cover;
-  background-position: center;
+  background-position: center;*/
 }
 
 .home-content {
-  max-width: 60rem;
+  max-width: 70%;
   z-index: 99;
 }
 
@@ -154,6 +217,30 @@ section {
   position: relative;
   font-size: 1.6rem;
   margin: 2rem 0 4rem;
+}
+
+.btn-wsp{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  line-height: 55px;
+  bottom: 30px;
+  right: 30px;
+  background: #0df053;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: 300ms ease;
+}
+
+.btn-wsp:hover{
+  text-decoration: none;
+  color: #0df053;
+  background-color: #fff;
+  transition: 300ms ease;
 }
 
 .btn-box {
@@ -262,7 +349,8 @@ section {
   width: 100%
 }
 
-.home-imgHover {
+/* Estas propiedades son por si le coloco alguna foto al home para crear un efecto oscurecido en la imagen  */
+/* .home-imgHover {
   position: absolute;
   top: 0;
   right: 0;
@@ -270,7 +358,7 @@ section {
   height: 100%;
   background: transparent;
   transition: 3s;
-}
+} */
 
 .home-imgHover:hover {
   background: var(--bg-color);
@@ -286,6 +374,8 @@ section {
   background: var(--second-bg-color);
   padding-bottom: 6rem;
 }
+
+
 
 .heading {
   position: relative;
@@ -324,8 +414,6 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border-top: .2rem solid var(--second-bg-color);
-  border-bottom: .2rem solid var(--second-bg-color);
   border-left: .2rem solid var(--main-color);
   border-right: .2rem solid var(--main-color);
   animation: aboutSpinner 8s linear infinite;
@@ -354,7 +442,7 @@ span {
 }
 
 .btn-box.btns a::before {
-  background: var(--second-bg-color);
+  background: var(--second-color-bg);
 }
 
 .education {
@@ -427,7 +515,7 @@ span {
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--second-bg-color);
+  background: #143b55;
   z-index: -1;
   transition: .5s;
 }
@@ -469,7 +557,8 @@ span {
   width: 500px;
   min-height: 450px;
   border-radius: 25px;
-  background-color: var(--bg-color);
+  background-color: var(--secondary-color);
+  box-shadow: 3px 5px 5px 0px #00abf0;
 }
 
 .img-content,
@@ -783,6 +872,7 @@ span {
   flex-wrap: wrap;
   padding: 2rem 9%;
   background: var(--second-bg-color);
+  border-top: 1px solid #00abf0;
 }
 
 .footer-text,
@@ -814,7 +904,7 @@ span {
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--second-bg-color);
+  background: var(--second-color-bg);
   z-index: -1;
   transition: .5s;
 }
@@ -834,6 +924,13 @@ span {
 }
 
 /* Animation RELOAD AND SCROLL */
+
+
+section:nth-child(odd) .animate.scroll,
+.footer .animate.scroll {
+  background: var(--second-bg-color);
+}
+
 .animate {
   position: absolute;
   top: 0;
@@ -842,10 +939,6 @@ span {
   height: 100%;
   background: var(--bg-color);
   z-index: 98;
-}
-
-.animate.home-img {
-  width: 50%;
 }
 
 .logo .animate,

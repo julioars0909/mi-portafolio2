@@ -7,6 +7,21 @@ menuIcon.onclick = () => {
   navbar.classList.toggle('active');
 }
 
+// dark mode
+const btnSwitch = document.querySelector('#switch')
+
+btnSwitch.addEventListener('click', ()=> {
+  document.body.classList.toggle('dark');
+  btnSwitch.classList.toggle('active-switch');
+  // const aboutDark = document.getElementById('#about')
+  // aboutDark.classList.remove('about')
+  // console.log(aboutDark.classList.remove('about'))
+  // aboutDark.classList.add('about-2')
+})
+
+
+
+
 // scroll sections
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -26,22 +41,57 @@ window.onscroll = () => {
         });
         // active sections for Animation on scroll
         sec.classList.add('show-animate')
-
     }
     // if want to use animation that repeats on scroll use this
     else {
       sec.classList.remove('show-animate')
     }
   });
-
+  
   // sticky header
   let header = document.querySelector('header');
+  let body = document.querySelector('body')
 
-  header.classList.toggle('sticky', window.scrollY > 100);
+  function handleScroll() {
+    //Obtener la posicion actual de desplazamiento
+    let scrollPosition = window.scrollY;
+    //Verificar si el body tiene la clase dark
+    let isDarkMode = body.classList.contains('dark')
+    //Agregar la clase 'sticky' al header si la posicion de desplazamiento es mayor que 100
+    //o si esta en modo oscuro, de lo contrario eliminarla 
+    header.classList.toggle('sticky', scrollPosition > 100 || isDarkMode);
+      
+    //cambiar el color del header dependiendo del modo oscuro
+    if (isDarkMode) {
+      header.style.background = '#000'
 
+    } else {
+      header.style.background = '#112e42'
+    }
+  }
+  //Agregar un listener para el evento de desplazamiento 
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+
+//Cambiar el color de las animaciones 
+let isDarkMode = body.classList.contains('dark')
+let  animationDarkMode = document.querySelectorAll('.animate')
+if(isDarkMode){
+  animationDarkMode.forEach(animation => animation.classList.remove('animate'))
+}
+
+//Cambiar el color de la animacion del span con la clase Circle-spin 
+let circleSpin = document.getElementById('circle-spin');
+
+if(isDarkMode){
+  circleSpin.style.borderTop = '.2rem solid #000'
+  circleSpin.style.borderBottom = '.2rem solid #000'
+} else{
+  circleSpin.style.borderTop = '.2rem solid #112e42'
+  circleSpin.style.borderBottom = '.2rem solid #112e42'
+}
 
   // remove toggle icon and navbar when click navbar links (scroll)
-
   menuIcon.classList.remove('bx-x');
   navbar.classList.remove('active');
 
@@ -51,6 +101,7 @@ window.onscroll = () => {
   footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
 
 }
+//Swiper library
 
 var swiper = new Swiper(".slide-content", {
   effect: "coverflow",
@@ -65,8 +116,9 @@ var swiper = new Swiper(".slide-content", {
     slideShadows: true,
   },
   pagination: {
-    el: ".swiper-pagination",
+    el: ".swiper-pagination", 
   },
 });
+
 
 

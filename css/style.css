@@ -666,6 +666,13 @@ span {
   text-align: center;
 }
 
+.about--card:nth-child(6) .bx {
+  color: #396c94;
+  padding: 12px;
+  font-size: 4rem;
+  text-align: center;
+}
+
 .about--tags--title {
   color: #00abf0;
   text-align: center;

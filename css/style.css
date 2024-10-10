@@ -653,20 +653,29 @@ span {
 }
 
 .about--card:nth-child(4) .bx {
+  color: #3776AB;
+  padding: 12px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+
+
+.about--card:nth-child(5) .bx {
   color: #61dbfb;
   padding: 12px;
   font-size: 4rem;
   text-align: center;
 }
 
-.about--card:nth-child(5) .bx {
+.about--card:nth-child(6) .bx {
   color: #86cf31;
   padding: 12px;
   font-size: 4rem;
   text-align: center;
 }
 
-.about--card:nth-child(6) .bx {
+.about--card:nth-child(7) .bx {
   color: #396c94;
   padding: 12px;
   font-size: 4rem;
